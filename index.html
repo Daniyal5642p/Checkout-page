@@ -1,0 +1,421 @@
+//if I forget to add the php tag this comment help me to change the file to php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+}
+
+/* My navbar goes above this */
+
+.checkout{
+    max-width:1400px;
+    margin:40px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:40px;
+}
+
+.left,
+.right{
+    background:#fff;
+    border-radius:16px;
+    padding:32px;
+}
+
+.right{
+    background:#eef3df;
+    position:sticky;
+    top:20px;
+    height:fit-content;
+}
+
+.section{
+    margin-bottom:40px;
+}
+
+.section h2{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+input,
+select{
+    width:100%;
+    padding:16px;
+    margin-bottom:15px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    font-size:16px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#000;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:5px;
+}
+
+.checkbox input{
+    width:auto;
+    margin:0;
+}
+
+.card{
+    border:1px solid #ddd;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px;
+}
+
+.item + .item{
+    border-top:1px solid #eee;
+}
+
+.payment-info{
+    padding:20px;
+    background:#f8f8f8;
+    color:#666;
+    line-height:1.6;
+}
+
+.radio-group{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.icons{
+    display:flex;
+    gap:8px;
+}
+
+.icon{
+    padding:6px 10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    font-size:14px;
+    background:#fff;
+}
+
+.muted{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.pay-btn{
+    width:100%;
+    padding:18px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#000;
+    color:#fff;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* RIGHT SIDE */
+
+.product{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:30px;
+}
+
+.product-image{
+    width:80px;
+    height:80px;
+
+    border-radius:12px;
+    overflow:hidden;
+
+    background:#fff;
+    border:1px solid #ddd;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.product-info{
+    flex:1;
+}
+
+.product-info h3{
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.product-price{
+    font-weight:700;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.total{
+    margin-top:25px;
+    padding-top:25px;
+
+    border-top:1px solid rgba(0,0,0,.1);
+
+    font-size:32px;
+    font-weight:700;
+}
+
+.total small{
+    color:#666;
+    font-size:14px;
+    margin-right:8px;
+}
+
+@media(max-width:992px){
+
+    .checkout{
+        grid-template-columns:1fr;
+    }
+
+    .right{
+        position:static;
+        order:-1;
+    }
+}
+
+@media(max-width:768px){
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    .left,
+    .right{
+        padding:20px;
+    }
+
+    .section h2{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MY NAVBAR HERE -->
+
+<div class="checkout">
+
+    <!-- LEFT SIDE -->
+
+    <div class="left">
+
+        <div class="section">
+            <h2>Contact</h2>
+
+            <input type="email" placeholder="Email or mobile phone number">
+
+            <label class="checkbox">
+                <input type="checkbox">
+                <span>Email me with news and offers</span>
+            </label>
+        </div>
+
+        <div class="section">
+            <h2>Delivery</h2>
+
+            <select>
+                <option>Pakistan</option>
+            </select>
+
+            <div class="row">
+                <input type="text" placeholder="First name">
+                <input type="text" placeholder="Last name">
+            </div>
+
+            <input type="text" placeholder="Address">
+
+            <input type="text" placeholder="Apartment, suite, etc. (optional)">
+
+            <div class="row">
+                <input type="text" placeholder="City">
+                <input type="text" placeholder="Postal code (optional)">
+            </div>
+
+            <input type="tel" placeholder="Phone">
+
+            <label class="checkbox">
+                <input type="checkbox">
+                <span>Save this information for next time</span>
+            </label>
+        </div>
+
+        <div class="section">
+            <h2>Shipping method</h2>
+
+            <div class="card">
+                <div class="item">
+                    <span>Standard</span>
+                    <strong>Rs 200.00</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Payment</h2>
+
+            <p class="muted">
+                All transactions are secure and encrypted.
+            </p>
+
+            <div class="card">
+
+                <div class="item">
+                    <div class="radio-group">
+                        <input type="radio" checked name="payment">
+                        <span>Pay via Card / Wallet</span>
+                    </div>
+
+                    <div class="icons">
+                        <div class="icon">Visa</div>
+                        <div class="icon">MC</div>
+                    </div>
+                </div>
+
+                <div class="payment-info">
+                    You'll be redirected to complete your purchase.
+                </div>
+
+                <div class="item">
+                    <div class="radio-group">
+                        <input type="radio" name="payment">
+                        <span>Cash on Delivery (COD)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Billing address</h2>
+
+            <div class="card">
+
+                <div class="item">
+                    <div class="radio-group">
+                        <input type="radio" checked name="billing">
+                        <span>Same as shipping address</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="radio-group">
+                        <input type="radio" name="billing">
+                        <span>Use a different billing address</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="pay-btn">
+            Pay now
+        </button>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right">
+
+        <div class="product">
+
+            <div class="product-image">
+                <img src="product.jpg" alt="Product">
+            </div>
+
+            <div class="product-info">
+                <h3>MS Only Yours INTENSE for Men 80ml</h3>
+                <p>Qty: 1</p>
+            </div>
+
+            <div class="product-price">
+                Rs 4,900.00
+            </div>
+
+        </div>
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span>Rs 4,900.00</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Shipping</span>
+            <span>Rs 200.00</span>
+        </div>
+
+        <div class="summary-row total">
+            <span>Total</span>
+
+            <span>
+                <small>PKR</small>
+                Rs 5,100.00
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
